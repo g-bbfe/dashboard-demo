@@ -1,11 +1,14 @@
 {
     "presets": [
-        ["es2015", { "modules": false }]
+        "vue-app"
     ],
+    "env": {
+        "test": {
+            "presets": ["vue-app"],
+            "plugins": ["istanbul"]
+        }
+    },
     "plugins": [
-        ["component", [{
-            "libraryName": "element-ui",
-            "styleLibraryName": "~theme"
-        }]]
+        "transform-runtime"
     ]
 }
