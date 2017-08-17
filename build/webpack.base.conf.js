@@ -33,6 +33,7 @@ module.exports = {
         enforce: 'pre',
         include: [resolve('src'), resolve('test')],
         options: {
+          failOnError: true,
           formatter: require('eslint-friendly-formatter')
         }
       },
