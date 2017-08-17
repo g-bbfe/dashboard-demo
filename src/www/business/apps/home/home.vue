@@ -1,5 +1,5 @@
 <template>
-  <div class="app-style">
+  <div>
     <div class="main-content">
       <el-tabs type="card">
         <el-tab-pane label="表格">

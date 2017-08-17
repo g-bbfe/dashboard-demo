@@ -1,8 +1,8 @@
 <template>
   <div class="app-style">
-    <el-row>
+    <el-row class="top-nav">
       <el-col :span="24">
-        <div class="grid-content bg-purple-dark">
+        <div class="grid-content bg-purple-dark top-menu">
         </div>
       </el-col>
     </el-row>
@@ -30,7 +30,9 @@
   </div>
 </template>
 
+
 <script>
+  require('../../../static/styles/main.css');
   export default {
     name: 'Layout',
     data () {

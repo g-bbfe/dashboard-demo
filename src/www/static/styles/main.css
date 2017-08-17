@@ -5,9 +5,37 @@ body {
 html,
 body,
 .app-style,
-.main {
+.main,
+.app {
     font-family: Helvetica, sans-serif;
-    height: 100%;
     margin: 0;
-    /* text-align: center; */
+}
+
+.top-nav {
+    position: absolute;
+    z-index: 10000;
+}
+.top-menu {
+    position: fixed;
+    width: 100%;
+}
+
+.main {
+    position: relative;
+    top: 36px;
+    bottom: 0;
+}
+
+.main-menu {
+    z-index: 9999;
+}
+.el-menu-vertical-demo {
+    position: fixed;
+    /* top: 36px;
+    bottom: 0; */
+}
+
+.main-content {
+    position: relative;
+    top: 10px;
 }
