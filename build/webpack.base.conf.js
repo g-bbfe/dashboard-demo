@@ -21,7 +21,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      '@': resolve('src')
+      '@': resolve('src'),
+      '@static': resolve('src/www/static')
     }
   },
   module: {
@@ -32,6 +33,7 @@ module.exports = {
         enforce: 'pre',
         include: [resolve('src'), resolve('test')],
         options: {
+          failOnError: true,
           formatter: require('eslint-friendly-formatter')
         }
       },
