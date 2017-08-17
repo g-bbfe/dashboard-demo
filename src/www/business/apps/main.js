@@ -19,15 +19,15 @@ Vue.use(Router);
 // })
 
 const routes = [ // 定义路由
-    { path: '/', component: Layout },
-    { path: '/home', component: Layout },
+  {path: '/', component: Layout},
+  {path: '/home', component: Layout},
   {
     path: '/2',
     component: Second
-            //   children:[
-            //     {path: '/', component: Submit},
-            //     {path: 'submit', component: Submit}
-            //   ]
+    //   children:[
+    //     {path: '/', component: Submit},
+    //     {path: 'submit', component: Submit}
+    //   ]
   }
 ];
 

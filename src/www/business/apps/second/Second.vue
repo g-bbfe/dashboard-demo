@@ -1,9 +1,6 @@
 <template>
   <div class="app-style">
     <h1>{{ msg }}</h1>
-
-    </br>
-
   </div>
 </template>
 

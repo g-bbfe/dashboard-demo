@@ -7,6 +7,10 @@
     </div>
 </template>
 
-<style>
-@import '../../static/styles/main.css'
-</style>
+<script>
+import '@static/styles/main.css';
+
+export default {
+  name: 'App'
+};
+</script>
