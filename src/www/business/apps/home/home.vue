@@ -1,84 +1,59 @@
 <template>
   <div class="app-style">
-    <el-row>
-        <el-col :span="24">
-          <div class="grid-content bg-purple-dark">
-          </div>
-        </el-col>
-      </el-row>
-    <div class="main">
+    <div class="main-content">
+      <el-tabs type="card">
+        <el-tab-pane label="表格">
+          <el-table
+            :data="tableData"
+            border
+            style="width: 100%"
+            :default-sort = "{prop: 'date', order: 'descending'}"
+            >
+            <el-table-column
+              prop="date"
+              label="日期"
+              sortable
+              width="180">
+            </el-table-column>
+            <el-table-column
+              prop="name"
+              label="姓名"
+              sortable
+              width="180">
+            </el-table-column>
+            <el-table-column
+              prop="address"
+              label="地址"
+              :formatter="formatter">
+            </el-table-column>
+          </el-table>
+          <el-button @click="dialogVisible = true" type="primary" icon="search">Yes!</el-button>
+        </el-tab-pane>
+        <el-tab-pane label="图表">
+          <div id="myChart" :style="{width: '500px', height: '300px'}"></div>
+        </el-tab-pane>
+        <el-tab-pane label="选项">
+          <el-radio-group v-model="radioValue">
+            <el-radio :label="0">选项1</el-radio>
+            <el-radio :label="1">选项2</el-radio>
+            <el-radio :label="2">选项3</el-radio>
+          </el-radio-group>
+          </br>
+          <el-autocomplete
+            popper-class="my-autocomplete"
+            v-model="state3"
+            :fetch-suggestions="querySearch"
+            custom-item="my-item-zh"
+            placeholder="请输入"
+            @select="handleSelect"
+            icon="edit"
+            :on-icon-click="handleIconClick"
+          ></el-autocomplete>
+        </el-tab-pane>
 
-      <div class="main-menu">
-        <el-menu default-active="3" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" theme="dark" router>
-          <el-submenu index="1">
-            <template slot="title"><i class="el-icon-message"></i>导航一</template>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
-            <el-menu-item index="1-3">选项3</el-menu-item>
-            <el-submenu class="small-menu" index="1-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="1-4-1">选项1</el-menu-item>
-            </el-submenu>
-          </el-submenu>
-          <el-menu-item index="2"><i class="el-icon-menu"></i>导航二</el-menu-item>
-          <el-menu-item index="3"><i class="el-icon-setting"></i>导航三</el-menu-item>
-        </el-menu>
-      </div>
-      <div class="main-content">
-        <el-tabs type="card">
-          <el-tab-pane label="表格">
-            <el-table
-              :data="tableData"
-              border
-              style="width: 100%"
-              :default-sort = "{prop: 'date', order: 'descending'}"
-              >
-              <el-table-column
-                prop="date"
-                label="日期"
-                sortable
-                width="180">
-              </el-table-column>
-              <el-table-column
-                prop="name"
-                label="姓名"
-                sortable
-                width="180">
-              </el-table-column>
-              <el-table-column
-                prop="address"
-                label="地址"
-                :formatter="formatter">
-              </el-table-column>
-            </el-table>
-            <el-button @click="dialogVisible = true" type="primary" icon="search">Yes!</el-button>
-          </el-tab-pane>
-          <el-tab-pane label="图表">
-            <div id="myChart" :style="{width: '500px', height: '300px'}"></div>
-          </el-tab-pane>
-          <el-tab-pane label="选项">
-            <el-radio-group v-model="radioValue">
-              <el-radio :label="0">选项1</el-radio>
-              <el-radio :label="1">选项2</el-radio>
-              <el-radio :label="2">选项3</el-radio>
-            </el-radio-group>
-            </br>
-            <el-autocomplete
-              popper-class="my-autocomplete"
-              v-model="state3"
-              :fetch-suggestions="querySearch"
-              custom-item="my-item-zh"
-              placeholder="请输入"
-              @select="handleSelect"
-              icon="edit"
-              :on-icon-click="handleIconClick"
-            ></el-autocomplete>
-          </el-tab-pane>
-
-        </el-tabs>
-      </div>
+      </el-tabs>
     </div>
-
+  
     <el-dialog
       title="提示"
       :visible.sync="dialogVisible"
@@ -112,8 +87,6 @@ export default {
   data () {
     return {
       isCollapse: true,
-      activeIndex: '1',
-      activeIndex2: '1',
       radioValue: 1,
       state3: '',
       restaurants: [],
@@ -137,26 +110,14 @@ export default {
       }]
     };
   },
-  computed: {
-    onRoutes () {
-      return this.$route.path.replace('/', '');
-    }
-  },
   mounted () {
     this.drawLine();
     this.restaurants = this.loadAll();
   },
   methods: {
-    // menu
-    handleOpen (key, keyPath) {
-      console.log(key, keyPath);
-    },
     handleOk (key, path) {
       console.log('点击OK', key, path);
       this.dialogVisible = false;
-    },
-    handleClose (key, keyPath) {
-      console.log(key, keyPath);
     },
 
     // 表格格式化
@@ -258,13 +219,6 @@ export default {
 </script>
 
 <style>
-  .el-submenu .small-menu.is-opened .el-menu{
-    position: absolute;
-    margin-left: 5px;
-    top: 0;
-    left: 100%;
-    z-index: 10;
-  }
   @import '../../../static/styles/home.css';
 </style>
 

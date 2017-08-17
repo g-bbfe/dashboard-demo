@@ -5,7 +5,8 @@ import 'element-ui/lib/theme-default/index.css';
 import App from './App.vue';
 import echarts from 'echarts';
 import Router from 'vue-router';
-import Layout from './home/Layout.vue';
+import Navigation from '../public-apps/navigation/index.vue';
+import Home from './home/Home.vue';
 import Second from './second/Second.vue';
 
 Vue.prototype.$echarts = echarts;
@@ -14,20 +15,24 @@ Vue.use(ElementUI);
 Vue.use(Router);
 
 // new Vue({
-//     el: '#app1',
-//     render: h => h(App1)
+//   el: '#app1',
+//   render: h => h(App1)
 // })
 
-const routes = [ // 定义路由
-  {path: '/', component: Layout},
-  {path: '/home', component: Layout},
+const routes = [
+  // 定义路由
   {
-    path: '/2',
-    component: Second
-    //   children:[
-    //     {path: '/', component: Submit},
-    //     {path: 'submit', component: Submit}
-    //   ]
+    path: '/',
+    component: Navigation,
+    children: [
+      { path: '/', component: Home },
+      { path: '/1-1', component: Home },
+      { path: '/1-2', component: Home },
+      { path: '/1-3', component: Home },
+      { path: '/1-4-1', component: Home },
+      { path: '/2', component: Second },
+      { path: '/3', component: Second }
+    ]
   }
 ];
 
