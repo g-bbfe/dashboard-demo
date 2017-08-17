@@ -15,7 +15,7 @@
             <el-menu-item index="1-1">选项1</el-menu-item>
             <el-menu-item index="1-2">选项2</el-menu-item>
             <el-menu-item index="1-3">选项3</el-menu-item>
-            <el-submenu index="1-4">
+            <el-submenu class="small-menu" index="1-4">
               <template slot="title">选项4</template>
               <el-menu-item index="1-4-1">选项1</el-menu-item>
             </el-submenu>
@@ -27,7 +27,31 @@
       <div class="main-content">
         <el-tabs type="card">
           <el-tab-pane label="表格">
-            <el-button @click.native="startHacking" type="primary" icon="search">Yes!</el-button>
+            <el-table
+              :data="tableData"
+              border
+              style="width: 100%"
+              :default-sort = "{prop: 'date', order: 'descending'}"
+              >
+              <el-table-column
+                prop="date"
+                label="日期"
+                sortable
+                width="180">
+              </el-table-column>
+              <el-table-column
+                prop="name"
+                label="姓名"
+                sortable
+                width="180">
+              </el-table-column>
+              <el-table-column
+                prop="address"
+                label="地址"
+                :formatter="formatter">
+              </el-table-column>
+            </el-table>
+            <el-button @click="dialogVisible = true" type="primary" icon="search">Yes!</el-button>
           </el-tab-pane>
           <el-tab-pane label="图表">
             <div id="myChart" :style="{width: '500px', height: '300px'}"></div>
@@ -54,6 +78,17 @@
         </el-tabs>
       </div>
     </div>
+
+    <el-dialog
+      title="提示"
+      :visible.sync="dialogVisible"
+      size="tiny">
+      <span>这是一段信息</span>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="dialogVisible = false">取 消</el-button>
+        <el-button type="primary" @click="handleOk">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -81,7 +116,25 @@ export default {
       activeIndex2: '1',
       radioValue: 1,
       state3: '',
-      restaurants: []
+      restaurants: [],
+      dialogVisible: false,
+      tableData: [{
+        date: '2016-05-02',
+        name: '王小虎1',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-04',
+        name: '王小虎2',
+        address: '上海市普陀区金沙江路 1517 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎3',
+        address: '上海市普陀区金沙江路 1519 弄'
+      }, {
+        date: '2016-05-03',
+        name: '王小虎4',
+        address: '上海市普陀区金沙江路 1516 弄'
+      }]
     }
   },
   computed: {
@@ -98,13 +151,24 @@ export default {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
     },
+    handleOk(key,path) {
+      console.log('点击OK', key, path);
+      this.dialogVisible = false;
+    },
     handleClose(key, keyPath) {
       console.log(key, keyPath);
     },
 
+    //表格格式化
+    formatter(row, colum) {
+      return row.address;
+    },
+
+    // 带suggestion的input框
     handleSelect(key, keyPath) {
       console.log(key, keyPath);
     },
+    // echarts画图
     drawLine(){
         // 基于准备好的dom，初始化echarts实例
         let myChart = this.$echarts.init(document.getElementById('myChart'))
@@ -197,83 +261,13 @@ export default {
 </script>
 
 <style>
-
-html, body, .app-style, .main {
-  font-family: Helvetica, sans-serif;
-  height: 100%;
-  margin: 0;
-  /* text-align: center; */
-}
-.app-style {
-  width: 100%;
-}
-.main {
-  display: flex;
-}
-.main-menu {
-  flex: none;
-  width: 200px;
-  margin-right: 12px;
-}
-.main-content {
-  flex: 1;
-}
-.el-menu-vertical-demo {
-  height: 100%;
-}
-
-.el-menu-vertical-demo:not(.el-menu--collapse) {
-  width: 200px;
-  min-height: 400px; 
-}
-.el-tabs__content {
-  min-height: 600px;
-}
-
-/* row */
-.el-row {
-    &:last-child {
-      margin-bottom: 0;
-    }
+  .el-submenu .small-menu.is-opened .el-menu{
+    position: absolute;
+    margin-left: 5px;
+    top: 0;
+    left: 100%;
+    z-index: 10;
   }
-  .bg-purple-dark {
-    background: #99a9bf;
-  }
-  .bg-purple {
-    background: #d3dce6;
-  }
-  .bg-purple-light {
-    background: #e5e9f2;
-  }
-  .grid-content {
-    min-height: 36px;
-    background: rgb(50, 65, 87);
-  }
-  .row-bg {
-    padding: 10px 0;
-    background-color: #f9fafc;
-  }
-
-
-/* input suggestion style */
-.el-autocomplete {
-    margin-top: 50px;
-}
-.my-autocomplete li {
-    line-height: normal;
-    padding: 7px;
-}
-.my-autocomplete li .name {
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-.my-autocomplete li .addr {
-    font-size: 12px;
-    color: #b4b4b4;
-}
-
-.my-autocomplete li .highlighted .addr {
-    color: #ddd;
-}
+  @import '../../../static/styles/home.css';
 </style>
 

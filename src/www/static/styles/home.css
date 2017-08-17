@@ -1,0 +1,87 @@
+.app-style {
+    width: 100%;
+}
+
+.main {
+    display: flex;
+}
+
+.main-menu {
+    flex: none;
+    width: 200px;
+    margin-right: 12px;
+}
+
+.main-content {
+    flex: 1;
+}
+
+.el-menu-vertical-demo {
+    height: 100%;
+}
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+}
+
+.el-tabs__content {
+    min-height: 600px;
+}
+
+
+/* row */
+
+.el-row {
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.bg-purple-dark {
+    background: #99a9bf;
+}
+
+.bg-purple {
+    background: #d3dce6;
+}
+
+.bg-purple-light {
+    background: #e5e9f2;
+}
+
+.grid-content {
+    min-height: 36px;
+    background: rgb(50, 65, 87);
+}
+
+.row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+}
+
+
+/* input suggestion style */
+
+.el-autocomplete {
+    margin-top: 50px;
+}
+
+.my-autocomplete li {
+    line-height: normal;
+    padding: 7px;
+}
+
+.my-autocomplete li .name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.my-autocomplete li .addr {
+    font-size: 12px;
+    color: #b4b4b4;
+}
+
+.my-autocomplete li .highlighted .addr {
+    color: #ddd;
+}
