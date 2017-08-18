@@ -60,4 +60,6 @@
     left: 100%;
     z-index: 10;
   } */
+  @import '../../../static/styles/home.css';
+
 </style>

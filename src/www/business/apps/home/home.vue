@@ -218,7 +218,3 @@ export default {
 };
 </script>
 
-<style>
-  @import '../../../static/styles/home.css';
-</style>
-
