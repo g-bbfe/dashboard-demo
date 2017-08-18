@@ -21,13 +21,6 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
-
-// view engine setup
-// app.set('views', path.join(__dirname, '../src/www/business/apps'));
-// app.engine('html', require('ejs').renderFile);
-// app.set('view engine', 'html');
-
-
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
@@ -68,7 +61,7 @@ app.use(hotMiddleware)
 
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
-app.use(staticPath, express.static('./static'))
+app.use(staticPath, express.static(config.dev.staticPath))
 
 var uri = 'http://localhost:' + port
 

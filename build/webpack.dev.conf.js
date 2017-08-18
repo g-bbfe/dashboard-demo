@@ -45,7 +45,7 @@ module.exports = merge(baseWebpackConfig, {
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: 'src/www/business/apps/index.html',
+      template: config.dev.appTemplatePath,
       inject: true
     }),
     // new FriendlyErrorsPlugin()
