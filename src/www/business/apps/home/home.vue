@@ -1,5 +1,5 @@
 <template>
-  <div class="app-style">
+  <div>
     <div class="main-content">
       <el-tabs type="card">
         <el-tab-pane label="表格">
@@ -217,8 +217,4 @@ export default {
   }
 };
 </script>
-
-<style>
-  @import '../../../static/styles/home.css';
-</style>
 
