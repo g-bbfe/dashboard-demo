@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
-// import '../theme/index.css'
+import 'fetch-detector';
+import 'fetch-ie8';
 import App from './App.vue';
 import echarts from 'echarts';
 import Router from 'vue-router';

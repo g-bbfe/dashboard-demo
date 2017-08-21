@@ -17,18 +17,25 @@
 
 ``` bash
 yarn
+// else
+npm install
 ```
 
-## Develop
+## Scripts
 
 ``` bash
-# serve with hot reload at localhost:8010
-npm run dev
+"scripts": {
+  "dev": "node build/dev-server.js",
+  "start": "node build/dev-server.js",
+  "build": "node build/build.js",
+  "lint": "eslint --fix --ext .js,.vue src"
+},
 ```
 
-## Build
+## Mock 数据
 
-``` bash
-# build for production with minification
-npm run build
-```
+`src/www/mock` 文件内存放 mock 数据
+
+## pre-commit
+
+添加了 git pre-commit 指令，执行 lint 脚本操作

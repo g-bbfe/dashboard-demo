@@ -63,6 +63,9 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static(config.dev.staticPath))
 
+// TODO add other static file router
+app.use('/lib', express.static('src/www/lib'))
+
 var uri = 'http://localhost:' + port
 
 var _resolve

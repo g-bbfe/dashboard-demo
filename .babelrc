@@ -1,14 +1,19 @@
 {
-    "presets": [
+  "presets": [
+    "vue-app"
+  ],
+  "env": {
+    "test": {
+      "presets": [
         "vue-app"
-    ],
-    "env": {
-        "test": {
-            "presets": ["vue-app"],
-            "plugins": ["istanbul"]
-        }
-    },
-    "plugins": [
-        "transform-runtime"
-    ]
+      ],
+      "plugins": [
+        "istanbul"
+      ]
+    }
+  },
+  "plugins": [
+    "transform-runtime",
+    "es6-promise"
+  ]
 }

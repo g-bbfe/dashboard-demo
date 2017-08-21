@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import '@static/styles/main.css';
+import 'static/styles/main.css';
 
 export default {
   name: 'App'

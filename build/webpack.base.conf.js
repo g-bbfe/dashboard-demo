@@ -22,7 +22,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       '@': resolve('src'),
-      '@static': resolve('src/www/static')
+      'static': resolve('src/www/static')
     }
   },
   module: {
@@ -32,6 +32,9 @@ module.exports = {
         loader: 'eslint-loader',
         enforce: 'pre',
         include: [resolve('src'), resolve('test')],
+        exclude: [
+          resolve(__dirname, "src/www/lib")
+        ],
         options: {
           emitError: true,
           failOnError: true,
