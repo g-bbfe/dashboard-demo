@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
+// import fetch polyfill
 import 'fetch-detector';
 import 'fetch-ie8';
 import App from './App.vue';
