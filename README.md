@@ -32,6 +32,10 @@ npm install
 },
 ```
 
+npm run build 可以指定版本号，例如 --tag v0.1 ，会在 dist 目录下生成该版本号文件夹，默认为 latest
+
+不过还是建议每个发布版本打一个 tag ，传到项目目录，防止丢失某版本源文件
+
 ## Mock 数据
 
 `src/www/mock` 文件内存放 mock 数据

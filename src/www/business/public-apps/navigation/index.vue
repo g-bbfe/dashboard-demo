@@ -37,6 +37,7 @@
 
 <script>
   import 'static/styles/main.css';
+
   export default {
     name: 'Layout',
     data () {

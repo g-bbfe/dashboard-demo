@@ -5,9 +5,9 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     appTemplatePath: 'src/www/business/apps/index.html',
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: 'index.html',
     // webpack output path must be an absolute path
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    assetsRoot: path.resolve(__dirname, '../dist' + '/' + process.env.npm_config_tag),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: false,

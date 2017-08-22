@@ -15,6 +15,9 @@ module.exports = {
   plugins: [
     'html'
   ],
+  globals: {
+    "__DEV__": false
+  },
   // add your custom rules here
   'rules': {
     "semi": ["error", "always"],
