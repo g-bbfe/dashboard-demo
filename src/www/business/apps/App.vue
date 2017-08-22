@@ -1,9 +1,6 @@
 <template>
     <div class="app">
-        <router-view
-                keep-alive
-                transition="fade"
-                transition-mode='out-in'></router-view>
+      <router-view></router-view>
     </div>
 </template>
 
@@ -14,3 +11,4 @@ export default {
   name: 'App'
 };
 </script>
+

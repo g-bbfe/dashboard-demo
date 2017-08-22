@@ -27,13 +27,13 @@ const routes = [
     path: '/',
     component: Navigation,
     children: [
-      { path: '/', component: Home },
-      { path: '/1-1', component: Home },
-      { path: '/1-2', component: Home },
-      { path: '/1-3', component: Home },
-      { path: '/1-4-1', component: Home },
-      { path: '/2', component: Second },
-      { path: '/3', component: Second }
+      { path: '', component: Home },
+      { path: '1-1', component: Home },
+      { path: '1-2', component: Home },
+      { path: '1-3', component: Home },
+      { path: '1-4-1', component: Home },
+      { path: '2', component: Second },
+      { path: '3', component: Second }
     ]
   }
 ];

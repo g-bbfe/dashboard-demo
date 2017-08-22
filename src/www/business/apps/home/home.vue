@@ -38,7 +38,7 @@
             <el-radio :label="1">选项2</el-radio>
             <el-radio :label="2">选项3</el-radio>
           </el-radio-group>
-          </br>
+          <br />
           <el-autocomplete
             popper-class="my-autocomplete"
             v-model="state3"
@@ -53,7 +53,7 @@
 
       </el-tabs>
     </div>
-  
+
     <el-dialog
       title="提示"
       :visible.sync="dialogVisible"
@@ -69,6 +69,8 @@
 
 <script>
 import Vue from 'vue';
+import 'static/styles/home.css';
+
 Vue.component('my-item-zh', {
   functional: true,
   render: function (h, ctx) {

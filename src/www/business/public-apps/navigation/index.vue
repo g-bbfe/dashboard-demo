@@ -24,7 +24,11 @@
         </el-menu>
       </div>
       <div class="main-content">
-        <router-view></router-view>
+        <transition name="fade" mode="out-in">
+          <keep-alive>
+            <router-view></router-view>
+          </keep-alive>
+        </transition>
       </div>
     </div>
   </div>
@@ -32,7 +36,7 @@
 
 
 <script>
-  require('../../../static/styles/main.css');
+  import 'static/styles/main.css';
   export default {
     name: 'Layout',
     data () {
@@ -52,14 +56,11 @@
   };
 </script>
 
-<style>
-  /* .el-submenu .small-menu.is-opened .el-menu{
-    position: absolute;
-    margin-left: 5px;
-    top: 0;
-    left: 100%;
-    z-index: 10;
-  } */
-  @import '../../../static/styles/home.css';
-
+<style scope>
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0
+  }
 </style>
