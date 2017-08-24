@@ -13,7 +13,6 @@
     }
   },
   "plugins": [
-    "transform-runtime",
     "es6-promise"
   ]
 }
