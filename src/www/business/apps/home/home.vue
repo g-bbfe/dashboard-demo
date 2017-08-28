@@ -2,13 +2,16 @@
   <div>
     <div class="main-content">
       <el-tabs type="card">
+        <el-tab-pane label="图表">
+          <div id="myChart" :style="{width: '500px', height: '300px'}"></div>
+        </el-tab-pane>
         <el-tab-pane label="表格">
           <el-table
             :data="tableData"
             border
             style="width: 100%"
             :default-sort = "{prop: 'date', order: 'descending'}"
-            >
+          >
             <el-table-column
               prop="date"
               label="日期"
@@ -29,9 +32,6 @@
           </el-table>
           <el-button @click="dialogVisible = true" type="primary" icon="search">Yes!</el-button>
         </el-tab-pane>
-        <el-tab-pane label="图表">
-          <div id="myChart" :style="{width: '500px', height: '300px'}"></div>
-        </el-tab-pane>
         <el-tab-pane label="选项">
           <el-radio-group v-model="radioValue">
             <el-radio :label="0">选项1</el-radio>
@@ -50,7 +50,6 @@
             :on-icon-click="handleIconClick"
           ></el-autocomplete>
         </el-tab-pane>
-
       </el-tabs>
     </div>
 
@@ -93,6 +92,7 @@ export default {
       state3: '',
       restaurants: [],
       dialogVisible: false,
+      myChart: {},
       tableData: [{
         date: '2016-05-02',
         name: '王小虎1',
@@ -130,9 +130,10 @@ export default {
     // echarts画图
     drawLine () {
         // 基于准备好的dom，初始化echarts实例
-      let myChart = this.$echarts.init(document.getElementById('myChart'));
+      console.log(document.getElementById('myChart').nodeName, document.getElementById('myChart').clientWidth);
+      this.myChart = this.$echarts.init(document.getElementById('myChart'));
         // 绘制图表
-      myChart.setOption({
+      this.myChart.setOption({
         title: { text: '在Vue中使用echarts' },
         tooltip: {},
         xAxis: {
@@ -220,3 +221,6 @@ export default {
 };
 </script>
 
+<style scope>
+
+</style>
